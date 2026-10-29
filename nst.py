@@ -29,22 +29,30 @@ def to_spec(y):
     return torch.log1p(S.abs()), torch.angle(S)
 
 
-def griffin_lim(spec, phase=None, n_iter=200, length=None):
-    # fast Griffin-Lim (Perraudin et al. 2013); starting from the content phase sounds much less metallic
+def griffin_lim_iter(spec, phase=None, n_iter=200, length=None, every=None):
+    # fast Griffin-Lim (Perraudin et al. 2013); starting from the content phase sounds much less metallic.
+    # Yields (iteration, waveform) every `every` iterations so the app can animate it
     mag = torch.expm1(spec.clamp(min=0))
     if phase is None:
         phase = 2 * np.pi * torch.rand_like(mag)
     S = mag * torch.exp(1j * phase)
     prev = torch.zeros_like(S)
-    for _ in range(n_iter):
+    for i in range(1, n_iter + 1):
         proj = stft(istft(S, length))
         if proj.shape[-1] != mag.shape[-1]:
             proj = proj[..., : mag.shape[-1]]
         S_new = proj + 0.99 * (proj - prev)
         prev = proj
         S = mag * torch.exp(1j * torch.angle(S_new))
-    y = istft(S, length).cpu().numpy()
-    return y / max(1.0, np.abs(y).max() / 0.99)
+        if i == n_iter or (every and i % every == 0):
+            y = istft(S, length).cpu().numpy()
+            yield i, y / max(1.0, np.abs(y).max() / 0.99)
+
+
+def griffin_lim(spec, phase=None, n_iter=200, length=None):
+    for _, y in griffin_lim_iter(spec, phase, n_iter, length):
+        pass
+    return y
 
 
 # audio view: frequency bins are channels, one 1D conv over time with random filters (Ulyanov & Lebedev)
@@ -105,8 +113,10 @@ def envelope_swap(c_spec, s_spec, smooth=15):
 
 
 def run(c_spec, s_spec, method="audio", init="content", s_wt=100.0, c_wt=1.0, steps=300, every=10,
-        seed=0, n_filt=4096):
-    """Yields (step, spec, loss_dict) every `every` LBFGS iterations. The last yield is the final spectrogram."""
+        seed=0, n_filt=4096, snap=0):
+    """Yields (step, spec, loss_dict) every `every` LBFGS iterations. The last yield is the final spectrogram.
+    With snap > 0 the dict also holds the top-left snap x snap block of the first style Gram matrix
+    for the target ("s_gram") and the current spectrogram ("gram"), for the app to draw."""
     if method == "envelope":
         yield steps, envelope_swap(c_spec, s_spec), {}
         return
@@ -140,6 +150,9 @@ def run(c_spec, s_spec, method="audio", init="content", s_wt=100.0, c_wt=1.0, st
         loss = s_wt * ls + c_wt * lc
         loss.backward()
         losses.update(style=ls.item(), content=lc.item())
+        if snap:
+            a = style[0][:snap].detach()
+            losses.update(gram=gram(a).cpu().numpy(), s_gram=s_grams[0][:snap, :snap].cpu().numpy())
         return loss
 
     for i in range(every, steps + every, every):
