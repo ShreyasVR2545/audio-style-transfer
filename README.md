@@ -27,21 +27,46 @@ Initialisation is the content spectrogram (default, as in Grinstein et al. 2018)
 - `nst.py` spectrogram, the two feature extractors, losses, optimisation loop, Griffin-Lim
 - `exp.py` the experiment: runs the grid, computes metrics, writes `results/`
 - `app.py` Gradio demo
+- `viz.py` draws the app's animation frames (numpy + PIL) and writes the optional mp4
 
 ## Running
 
 ```
 pip install -r requirements.txt
-python data.py          # ~15 small wavs, a few MB
+python data.py          # 39 preset clips, ~65 MB of downloads (kept in data/raw, ignored by git)
 python exp.py           # full experiment, ~15 min with a CUDA GPU
-python app.py           # http://127.0.0.1:7860 ; add --share for a temporary public link
+python app.py           # http://127.0.0.1:7860 ; add --share for a temporary public (https) link
 ```
 
-The first image-view run downloads the torchvision VGG-19 weights (~550 MB). The Whisper check in `exp.py` (and
-the optional checkbox in the app) downloads `openai/whisper-base.en` through `transformers`.
+The first image-view run downloads the torchvision VGG-19 weights (~550 MB). The Whisper check in `exp.py`
+downloads `openai/whisper-base.en` through `transformers`.
 
 Speed: on a CUDA GPU one 300-step run takes ~5 s (audio view) or ~11 s (image view). On a CPU with 8 threads
 it is ~70 s for the audio view and ~4 min for the image view, so on a laptop use ~100 steps for the image view.
+
+## The app
+
+Pick a content clip and a style clip from the presets (15 voice clips from 7 CMU ARCTIC speakers, 16 ESC-50
+textures, 8 instrument notes) or record / upload your own, and press Run. The app then animates the whole
+pipeline in one panel:
+
+1. audio -> image: a window slides along each waveform while its spectrogram fills in column by column
+2. style matching: the output spectrogram moving step by step from its start towards the result, next to the
+   top-left 64 x 64 block of the style's Gram matrix and the output's Gram matrix, and the style-loss curve
+3. image -> audio: Griffin-Lim iterations, with the output waveform drawn left to right
+
+At the end it shows the three spectrograms, the output audio and one line on what moved (brightness, pitch).
+"Save the animation as a video" writes the sequence plus the output audio as an mp4.
+
+Method, starting point, style strength (light / medium / strong / extreme = style weight 10 / 50 / 150 / 1000)
+and steps are in the collapsed Settings panel; the defaults are audio view, start from content, medium,
+300 steps (100 for the image view on a CPU). A full default run takes ~20 s on a GPU and ~70-90 s on a CPU.
+
+Recorded and uploaded clips go through a 70 Hz high-pass (browser mics often have a DC offset and mains hum,
+which after normalising end up dominating the lowest spectrogram rows), then silence is trimmed at 6 dB above
+the clip's own noise floor (a fixed 40 dB trim does nothing on a noisy recording), then the first 6 s are kept
+and normalised. Browsers only allow the microphone on localhost or https, so use `--share` when opening the app
+from another device.
 
 ## Experiment
 
@@ -154,9 +179,11 @@ not run listening tests beyond my own ears.
 ## Credits and licenses
 
 - CMU ARCTIC speech databases (Kominek & Black, Carnegie Mellon University), free to use with attribution.
-  Speakers bdl, slt, rms, clb, awb. http://festvox.org/cmu_arctic/
+  Speakers bdl, slt, rms, clb, awb, jmk, ksp. http://festvox.org/cmu_arctic/
 - ESC-50 (Piczak 2015), clips from Freesound, CC BY-NC 3.0. https://github.com/karolpiczak/ESC-50
   The exact clips used are listed in `data/presets/presets.json`.
+- University of Iowa Musical Instrument Samples (Lawrence Fritts), "may be downloaded and used for any
+  projects, without restrictions". https://theremin.music.uiowa.edu/MIS.html
 - VGG-19 ImageNet weights from torchvision. Whisper base.en from OpenAI via Hugging Face.
 
 References: Gatys, Ecker & Bethge (CVPR 2016); Ulyanov & Lebedev, "Audio texture synthesis and style transfer"
