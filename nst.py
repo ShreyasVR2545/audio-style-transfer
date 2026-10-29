@@ -104,9 +104,9 @@ def envelope_swap(c_spec, s_spec, smooth=15):
     return torch.log1p(torch.expm1(c_spec) * gain[:, None])
 
 
-def run(c_spec, s_spec, method="audio", init="content", s_wt=100.0, c_wt=1.0, steps=300, lr=None,
-        every=10, seed=0, n_filt=4096):
-    """Yields (step, spec, loss_dict). The last yield is the final spectrogram."""
+def run(c_spec, s_spec, method="audio", init="content", s_wt=100.0, c_wt=1.0, steps=300, every=10,
+        seed=0, n_filt=4096):
+    """Yields (step, spec, loss_dict) every `every` LBFGS iterations. The last yield is the final spectrogram."""
     if method == "envelope":
         yield steps, envelope_swap(c_spec, s_spec), {}
         return
@@ -114,10 +114,8 @@ def run(c_spec, s_spec, method="audio", init="content", s_wt=100.0, c_wt=1.0, st
     torch.manual_seed(seed)
     if method == "audio":
         feats = audio_net(n_filt=n_filt, seed=seed)
-        lr = lr or 0.05
     else:
         feats = image_net(scale=max(c_spec.max(), s_spec.max()).item())
-        lr = lr or 0.02
 
     with torch.no_grad():
         s_grams = [gram(a) for a in feats(s_spec)[0]]
@@ -128,27 +126,31 @@ def run(c_spec, s_spec, method="audio", init="content", s_wt=100.0, c_wt=1.0, st
     else:
         x = torch.rand_like(c_spec) * s_spec.mean() * 2
     x.requires_grad_(True)
-    opt = torch.optim.Adam([x], lr=lr)
+    # LBFGS rather than Adam: Adam moves every bin by ~lr per step even where the gradient is tiny,
+    # which paints a faint noise floor over the silent parts of the spectrogram
+    opt = torch.optim.LBFGS([x], max_iter=every, history_size=20, line_search_fn="strong_wolfe")
+    losses = {}
 
-    for i in range(1, steps + 1):
+    def closure():
         opt.zero_grad()
-        style, content = feats(x)
+        style, content = feats(x.clamp(min=0))
         # losses normalised by target size so s_wt means roughly the same thing for both views
         ls = sum(((gram(a) - g) ** 2).sum() / (g ** 2).sum() for a, g in zip(style, s_grams)) / len(style)
         lc = ((content - c_target) ** 2).sum() / (c_target ** 2).sum()
         loss = s_wt * ls + c_wt * lc
         loss.backward()
-        opt.step()
-        with torch.no_grad():
-            x.clamp_(min=0)
-        if i % every == 0 or i == steps:
-            yield i, x.detach().clone(), dict(style=ls.item(), content=lc.item())
+        losses.update(style=ls.item(), content=lc.item())
+        return loss
+
+    for i in range(every, steps + every, every):
+        opt.step(closure)
+        yield min(i, steps), x.detach().clamp(min=0), dict(losses)
 
 
 def transfer(c_y, s_y, method="audio", init="content", s_wt=100.0, steps=300, gl_iter=200, **kw):
     c_spec, c_phase = to_spec(c_y)
     s_spec, _ = to_spec(s_y)
-    for _, spec, losses in run(c_spec, s_spec, method, init, s_wt, steps=steps, every=steps, **kw):
+    for _, spec, losses in run(c_spec, s_spec, method, init, s_wt, steps=steps, **kw):
         pass
     y = griffin_lim(spec, c_phase, n_iter=gl_iter, length=len(c_y))
     return y, spec.cpu().numpy(), losses
