@@ -2,99 +2,274 @@
  {
   "name": "bdl_a0001",
   "category": "voice",
-  "desc": "CMU ARCTIC bdl (US male)",
+  "label": "Voice: US male (bdl), \"Author of the danger...\"",
   "source": "http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_bdl_arctic/wav/arctic_a0001.wav",
   "license": "CMU ARCTIC (free use, attribution)"
  },
  {
   "name": "bdl_a0002",
   "category": "voice",
-  "desc": "CMU ARCTIC bdl (US male)",
+  "label": "Voice: US male (bdl), \"Not at this particular...\"",
   "source": "http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_bdl_arctic/wav/arctic_a0002.wav",
   "license": "CMU ARCTIC (free use, attribution)"
  },
  {
-  "name": "slt_a0001",
+  "name": "bdl_a0003",
   "category": "voice",
-  "desc": "CMU ARCTIC slt (US female)",
-  "source": "http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_slt_arctic/wav/arctic_a0001.wav",
+  "label": "Voice: US male (bdl), \"For the twentieth time...\"",
+  "source": "http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_bdl_arctic/wav/arctic_a0003.wav",
   "license": "CMU ARCTIC (free use, attribution)"
  },
  {
   "name": "slt_a0002",
   "category": "voice",
-  "desc": "CMU ARCTIC slt (US female)",
+  "label": "Voice: US female (slt), \"Not at this particular...\"",
   "source": "http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_slt_arctic/wav/arctic_a0002.wav",
+  "license": "CMU ARCTIC (free use, attribution)"
+ },
+ {
+  "name": "slt_a0003",
+  "category": "voice",
+  "label": "Voice: US female (slt), \"For the twentieth time...\"",
+  "source": "http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_slt_arctic/wav/arctic_a0003.wav",
+  "license": "CMU ARCTIC (free use, attribution)"
+ },
+ {
+  "name": "rms_a0002",
+  "category": "voice",
+  "label": "Voice: US male, deep (rms), \"Not at this particular...\"",
+  "source": "http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_rms_arctic/wav/arctic_a0002.wav",
   "license": "CMU ARCTIC (free use, attribution)"
  },
  {
   "name": "rms_a0003",
   "category": "voice",
-  "desc": "CMU ARCTIC rms (US male, deeper)",
+  "label": "Voice: US male, deep (rms), \"For the twentieth time...\"",
   "source": "http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_rms_arctic/wav/arctic_a0003.wav",
+  "license": "CMU ARCTIC (free use, attribution)"
+ },
+ {
+  "name": "clb_a0002",
+  "category": "voice",
+  "label": "Voice: US female (clb), \"Not at this particular...\"",
+  "source": "http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_clb_arctic/wav/arctic_a0002.wav",
   "license": "CMU ARCTIC (free use, attribution)"
  },
  {
   "name": "clb_a0003",
   "category": "voice",
-  "desc": "CMU ARCTIC clb (US female)",
+  "label": "Voice: US female (clb), \"For the twentieth time...\"",
   "source": "http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_clb_arctic/wav/arctic_a0003.wav",
   "license": "CMU ARCTIC (free use, attribution)"
  },
  {
-  "name": "awb_a0004",
+  "name": "awb_a0002",
   "category": "voice",
-  "desc": "CMU ARCTIC awb (Scottish male)",
-  "source": "http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_awb_arctic/wav/arctic_a0004.wav",
+  "label": "Voice: Scottish male (awb), \"Not at this particular...\"",
+  "source": "http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_awb_arctic/wav/arctic_a0002.wav",
+  "license": "CMU ARCTIC (free use, attribution)"
+ },
+ {
+  "name": "awb_a0003",
+  "category": "voice",
+  "label": "Voice: Scottish male (awb), \"For the twentieth time...\"",
+  "source": "http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_awb_arctic/wav/arctic_a0003.wav",
+  "license": "CMU ARCTIC (free use, attribution)"
+ },
+ {
+  "name": "jmk_a0002",
+  "category": "voice",
+  "label": "Voice: Canadian male (jmk), \"Not at this particular...\"",
+  "source": "http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_jmk_arctic/wav/arctic_a0002.wav",
+  "license": "CMU ARCTIC (free use, attribution)"
+ },
+ {
+  "name": "jmk_a0003",
+  "category": "voice",
+  "label": "Voice: Canadian male (jmk), \"For the twentieth time...\"",
+  "source": "http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_jmk_arctic/wav/arctic_a0003.wav",
+  "license": "CMU ARCTIC (free use, attribution)"
+ },
+ {
+  "name": "ksp_a0002",
+  "category": "voice",
+  "label": "Voice: Indian English male (ksp), \"Not at this particular...\"",
+  "source": "http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_ksp_arctic/wav/arctic_a0002.wav",
+  "license": "CMU ARCTIC (free use, attribution)"
+ },
+ {
+  "name": "ksp_a0003",
+  "category": "voice",
+  "label": "Voice: Indian English male (ksp), \"For the twentieth time...\"",
+  "source": "http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_ksp_arctic/wav/arctic_a0003.wav",
   "license": "CMU ARCTIC (free use, attribution)"
  },
  {
   "name": "rain",
   "category": "texture",
-  "desc": "ESC-50 rain (1-17367-A-10.wav)",
+  "label": "Texture: rain",
   "source": "https://github.com/karolpiczak/ESC-50/raw/master/audio/1-17367-A-10.wav",
   "license": "CC BY-NC 3.0 (ESC-50 / Freesound)"
  },
  {
   "name": "crackling_fire",
   "category": "texture",
-  "desc": "ESC-50 crackling_fire (1-17565-A-12.wav)",
+  "label": "Texture: crackling fire",
   "source": "https://github.com/karolpiczak/ESC-50/raw/master/audio/1-17565-A-12.wav",
   "license": "CC BY-NC 3.0 (ESC-50 / Freesound)"
  },
  {
   "name": "wind",
   "category": "texture",
-  "desc": "ESC-50 wind (1-137296-A-16.wav)",
+  "label": "Texture: wind",
   "source": "https://github.com/karolpiczak/ESC-50/raw/master/audio/1-137296-A-16.wav",
   "license": "CC BY-NC 3.0 (ESC-50 / Freesound)"
  },
  {
   "name": "crickets",
   "category": "texture",
-  "desc": "ESC-50 crickets (1-57316-A-13.wav)",
+  "label": "Texture: crickets",
   "source": "https://github.com/karolpiczak/ESC-50/raw/master/audio/1-57316-A-13.wav",
   "license": "CC BY-NC 3.0 (ESC-50 / Freesound)"
  },
  {
   "name": "sea_waves",
   "category": "texture",
-  "desc": "ESC-50 sea_waves (1-28135-A-11.wav)",
+  "label": "Texture: sea waves",
   "source": "https://github.com/karolpiczak/ESC-50/raw/master/audio/1-28135-A-11.wav",
   "license": "CC BY-NC 3.0 (ESC-50 / Freesound)"
  },
  {
   "name": "engine",
   "category": "texture",
-  "desc": "ESC-50 engine (1-18527-A-44.wav)",
+  "label": "Texture: engine",
   "source": "https://github.com/karolpiczak/ESC-50/raw/master/audio/1-18527-A-44.wav",
   "license": "CC BY-NC 3.0 (ESC-50 / Freesound)"
  },
  {
   "name": "church_bells",
   "category": "texture",
-  "desc": "ESC-50 church_bells (1-21421-A-46.wav)",
+  "label": "Texture: church bells",
   "source": "https://github.com/karolpiczak/ESC-50/raw/master/audio/1-21421-A-46.wav",
   "license": "CC BY-NC 3.0 (ESC-50 / Freesound)"
+ },
+ {
+  "name": "thunderstorm",
+  "category": "texture",
+  "label": "Texture: thunderstorm",
+  "source": "https://github.com/karolpiczak/ESC-50/raw/master/audio/1-101296-A-19.wav",
+  "license": "CC BY-NC 3.0 (ESC-50 / Freesound)"
+ },
+ {
+  "name": "chirping_birds",
+  "category": "texture",
+  "label": "Texture: chirping birds",
+  "source": "https://github.com/karolpiczak/ESC-50/raw/master/audio/1-100038-A-14.wav",
+  "license": "CC BY-NC 3.0 (ESC-50 / Freesound)"
+ },
+ {
+  "name": "clock_tick",
+  "category": "texture",
+  "label": "Texture: clock tick",
+  "source": "https://github.com/karolpiczak/ESC-50/raw/master/audio/1-35687-A-38.wav",
+  "license": "CC BY-NC 3.0 (ESC-50 / Freesound)"
+ },
+ {
+  "name": "helicopter",
+  "category": "texture",
+  "label": "Texture: helicopter",
+  "source": "https://github.com/karolpiczak/ESC-50/raw/master/audio/1-172649-A-40.wav",
+  "license": "CC BY-NC 3.0 (ESC-50 / Freesound)"
+ },
+ {
+  "name": "vacuum_cleaner",
+  "category": "texture",
+  "label": "Texture: vacuum cleaner",
+  "source": "https://github.com/karolpiczak/ESC-50/raw/master/audio/1-100210-A-36.wav",
+  "license": "CC BY-NC 3.0 (ESC-50 / Freesound)"
+ },
+ {
+  "name": "keyboard_typing",
+  "category": "texture",
+  "label": "Texture: keyboard typing",
+  "source": "https://github.com/karolpiczak/ESC-50/raw/master/audio/1-79711-A-32.wav",
+  "license": "CC BY-NC 3.0 (ESC-50 / Freesound)"
+ },
+ {
+  "name": "clapping",
+  "category": "texture",
+  "label": "Texture: clapping",
+  "source": "https://github.com/karolpiczak/ESC-50/raw/master/audio/1-105224-A-22.wav",
+  "license": "CC BY-NC 3.0 (ESC-50 / Freesound)"
+ },
+ {
+  "name": "train",
+  "category": "texture",
+  "label": "Texture: train",
+  "source": "https://github.com/karolpiczak/ESC-50/raw/master/audio/1-119125-A-45.wav",
+  "license": "CC BY-NC 3.0 (ESC-50 / Freesound)"
+ },
+ {
+  "name": "pouring_water",
+  "category": "texture",
+  "label": "Texture: pouring water",
+  "source": "https://github.com/karolpiczak/ESC-50/raw/master/audio/1-51436-A-17.wav",
+  "license": "CC BY-NC 3.0 (ESC-50 / Freesound)"
+ },
+ {
+  "name": "violin",
+  "category": "instrument",
+  "label": "Instrument: violin, bowed A4-B4",
+  "source": "https://theremin.music.uiowa.edu/sound files/MIS/Strings/violin2012/Violin.arco.mf.sulA.A4B4.stereo.aif",
+  "license": "University of Iowa MIS (free to use for any project, no restrictions)"
+ },
+ {
+  "name": "cello",
+  "category": "instrument",
+  "label": "Instrument: cello, bowed G2-Gb3",
+  "source": "https://theremin.music.uiowa.edu/sound files/MIS/Strings/cello2012/Cello.arco.mf.sulG.G2Gb3.stereo.aif",
+  "license": "University of Iowa MIS (free to use for any project, no restrictions)"
+ },
+ {
+  "name": "flute",
+  "category": "instrument",
+  "label": "Instrument: flute, A4",
+  "source": "https://theremin.music.uiowa.edu/sound files/MIS Pitches - 2014/Woodwinds/Flute/Flute.vib.ff.A4.stereo.aif",
+  "license": "University of Iowa MIS (free to use for any project, no restrictions)"
+ },
+ {
+  "name": "clarinet",
+  "category": "instrument",
+  "label": "Instrument: clarinet, G3",
+  "source": "https://theremin.music.uiowa.edu/sound files/MIS Pitches - 2014/Woodwinds/Bb Clarinet/BbClarinet.ff.G3.stereo.aif",
+  "license": "University of Iowa MIS (free to use for any project, no restrictions)"
+ },
+ {
+  "name": "alto_sax",
+  "category": "instrument",
+  "label": "Instrument: alto sax, A3",
+  "source": "https://theremin.music.uiowa.edu/sound files/MIS Pitches - 2014/Woodwinds/Eb Alto Saxophone/AltoSax.vib.ff.A3.stereo.aif",
+  "license": "University of Iowa MIS (free to use for any project, no restrictions)"
+ },
+ {
+  "name": "trumpet",
+  "category": "instrument",
+  "label": "Instrument: trumpet, C4",
+  "source": "https://theremin.music.uiowa.edu/sound files/MIS Pitches - 2014/Brass/BbTrumpet/Trumpet.vib.ff.C4.stereo.aif",
+  "license": "University of Iowa MIS (free to use for any project, no restrictions)"
+ },
+ {
+  "name": "horn",
+  "category": "instrument",
+  "label": "Instrument: french horn, F3",
+  "source": "https://theremin.music.uiowa.edu/sound files/MIS Pitches - 2014/Brass/Horn/Horn.ff.F3.stereo.aif",
+  "license": "University of Iowa MIS (free to use for any project, no restrictions)"
+ },
+ {
+  "name": "piano",
+  "category": "instrument",
+  "label": "Instrument: piano, C4",
+  "source": "https://theremin.music.uiowa.edu/sound files/MIS/Piano_Other/piano/Piano.mf.C4.aiff",
+  "license": "University of Iowa MIS (free to use for any project, no restrictions)"
  }
 ]
