@@ -1,0 +1,7 @@
+style_kind,method,mfcc_toward_style,centroid_toward_style,onset_corr,rms_corr,wer
+texture style,audio,0.794,1.004,0.736,0.441,0.266
+texture style,envelope,0.684,0.873,0.97,0.554,0.062
+texture style,image,0.255,0.219,0.753,0.793,0.234
+voice style,audio,0.716,-0.338,0.837,0.444,0.312
+voice style,envelope,0.566,-1.642,0.989,0.783,0.0
+voice style,image,0.283,-0.227,0.876,0.911,0.062
