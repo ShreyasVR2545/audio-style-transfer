@@ -1,0 +1,100 @@
+[
+ {
+  "name": "bdl_a0001",
+  "category": "voice",
+  "desc": "CMU ARCTIC bdl (US male)",
+  "source": "http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_bdl_arctic/wav/arctic_a0001.wav",
+  "license": "CMU ARCTIC (free use, attribution)"
+ },
+ {
+  "name": "bdl_a0002",
+  "category": "voice",
+  "desc": "CMU ARCTIC bdl (US male)",
+  "source": "http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_bdl_arctic/wav/arctic_a0002.wav",
+  "license": "CMU ARCTIC (free use, attribution)"
+ },
+ {
+  "name": "slt_a0001",
+  "category": "voice",
+  "desc": "CMU ARCTIC slt (US female)",
+  "source": "http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_slt_arctic/wav/arctic_a0001.wav",
+  "license": "CMU ARCTIC (free use, attribution)"
+ },
+ {
+  "name": "slt_a0002",
+  "category": "voice",
+  "desc": "CMU ARCTIC slt (US female)",
+  "source": "http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_slt_arctic/wav/arctic_a0002.wav",
+  "license": "CMU ARCTIC (free use, attribution)"
+ },
+ {
+  "name": "rms_a0003",
+  "category": "voice",
+  "desc": "CMU ARCTIC rms (US male, deeper)",
+  "source": "http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_rms_arctic/wav/arctic_a0003.wav",
+  "license": "CMU ARCTIC (free use, attribution)"
+ },
+ {
+  "name": "clb_a0003",
+  "category": "voice",
+  "desc": "CMU ARCTIC clb (US female)",
+  "source": "http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_clb_arctic/wav/arctic_a0003.wav",
+  "license": "CMU ARCTIC (free use, attribution)"
+ },
+ {
+  "name": "awb_a0004",
+  "category": "voice",
+  "desc": "CMU ARCTIC awb (Scottish male)",
+  "source": "http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_awb_arctic/wav/arctic_a0004.wav",
+  "license": "CMU ARCTIC (free use, attribution)"
+ },
+ {
+  "name": "rain",
+  "category": "texture",
+  "desc": "ESC-50 rain (1-17367-A-10.wav)",
+  "source": "https://github.com/karolpiczak/ESC-50/raw/master/audio/1-17367-A-10.wav",
+  "license": "CC BY-NC 3.0 (ESC-50 / Freesound)"
+ },
+ {
+  "name": "crackling_fire",
+  "category": "texture",
+  "desc": "ESC-50 crackling_fire (1-17565-A-12.wav)",
+  "source": "https://github.com/karolpiczak/ESC-50/raw/master/audio/1-17565-A-12.wav",
+  "license": "CC BY-NC 3.0 (ESC-50 / Freesound)"
+ },
+ {
+  "name": "wind",
+  "category": "texture",
+  "desc": "ESC-50 wind (1-137296-A-16.wav)",
+  "source": "https://github.com/karolpiczak/ESC-50/raw/master/audio/1-137296-A-16.wav",
+  "license": "CC BY-NC 3.0 (ESC-50 / Freesound)"
+ },
+ {
+  "name": "crickets",
+  "category": "texture",
+  "desc": "ESC-50 crickets (1-57316-A-13.wav)",
+  "source": "https://github.com/karolpiczak/ESC-50/raw/master/audio/1-57316-A-13.wav",
+  "license": "CC BY-NC 3.0 (ESC-50 / Freesound)"
+ },
+ {
+  "name": "sea_waves",
+  "category": "texture",
+  "desc": "ESC-50 sea_waves (1-28135-A-11.wav)",
+  "source": "https://github.com/karolpiczak/ESC-50/raw/master/audio/1-28135-A-11.wav",
+  "license": "CC BY-NC 3.0 (ESC-50 / Freesound)"
+ },
+ {
+  "name": "engine",
+  "category": "texture",
+  "desc": "ESC-50 engine (1-18527-A-44.wav)",
+  "source": "https://github.com/karolpiczak/ESC-50/raw/master/audio/1-18527-A-44.wav",
+  "license": "CC BY-NC 3.0 (ESC-50 / Freesound)"
+ },
+ {
+  "name": "church_bells",
+  "category": "texture",
+  "desc": "ESC-50 church_bells (1-21421-A-46.wav)",
+  "source": "https://github.com/karolpiczak/ESC-50/raw/master/audio/1-21421-A-46.wav",
+  "license": "CC BY-NC 3.0 (ESC-50 / Freesound)"
+ }
+]
