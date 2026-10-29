@@ -1,9 +1,12 @@
-torch
-torchvision
-librosa
+torch>=2.1
+torchvision>=0.16
+librosa>=0.10
 soundfile
 numpy
 scipy
 matplotlib
 pandas
-gradio
+pillow
+gradio>=5.0
+transformers>=4.40
+imageio[ffmpeg]

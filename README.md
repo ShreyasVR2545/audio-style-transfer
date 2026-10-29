@@ -5,7 +5,7 @@ spectrogram, and turn the result back into sound? Which audible properties come 
 from the style clip?
 
 Pipeline: mono audio at 22.05 kHz -> log-magnitude STFT (`log1p|STFT|`, n_fft 1024, hop 256) -> optimise the
-spectrogram with Adam so its features match the content clip and its Gram matrices match the style clip ->
+spectrogram with LBFGS so its features match the content clip and its Gram matrices match the style clip ->
 fast Griffin-Lim initialised from the content clip's phase -> audio.
 
 Three ways of doing the "style" part are compared:
