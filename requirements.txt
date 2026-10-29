@@ -1,0 +1,9 @@
+torch
+torchvision
+librosa
+soundfile
+numpy
+scipy
+matplotlib
+pandas
+gradio
