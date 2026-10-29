@@ -59,11 +59,15 @@ def fetch(url, dst):
 
 def trim(y, sr=SR, max_sec=MAX_SEC, top_db=None):
     # a fixed 40 dB trim does nothing when there is a noise floor (mic recordings), so by default cut at
-    # 10 dB above the floor (the quietest frame); steady sounds with no quiet part keep 40 dB
+    # 6 dB above the floor (the quietest frame); steady sounds with no quiet part keep 40 dB
     if top_db is None:
         floor = librosa.amplitude_to_db(librosa.feature.rms(y=y)[0], ref=np.max).min()
-        top_db = 40 if floor > -25 else min(40, -floor - 10)
-    y, _ = librosa.effects.trim(y, top_db=top_db)
+        top_db = 40 if floor > -15 else float(np.clip(-floor - 6, 12, 40))
+        a, b = librosa.effects.trim(y, top_db=top_db)[1]
+        pad = int(0.1 * sr)  # the higher threshold clips soft word onsets, give some back
+        y = y[max(0, a - pad): b + pad]
+    else:
+        y, _ = librosa.effects.trim(y, top_db=top_db)
     y = y[: int(max_sec * sr)]
     return (0.9 * y / (np.abs(y).max() + 1e-9)).astype(np.float32)
 
